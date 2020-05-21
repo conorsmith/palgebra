@@ -20,7 +20,7 @@
                 Your lucky colour is
                 <span style="padding: 0.1rem 0.4rem; background-color: {{ $colour['value'] }};">
                     <span style="mix-blend-mode: difference; color: #fff; font-weight: 700;">
-                        {{ $colour['label'] }}
+                        {!! $colour['label'] !!}
                     </span>
                 </span>
             </p>

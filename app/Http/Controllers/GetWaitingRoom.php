@@ -50,7 +50,7 @@ final class GetWaitingRoom
         $colour = $colours[$colourKey];
 
         return [
-            'label' => ucfirst($colour),
+            'label' => str_replace(" ", "&nbsp;", ucfirst($colour)),
             'value' => str_replace(" ", "", strtolower($colour)),
         ];
     }
