@@ -7,7 +7,7 @@
         </div>
     @endif
     <div class="card" style="font-size: 1.4rem; text-align: center;">
-        <div class="card-body">
+        <div class="card-body" style="line-height: 1.6rem;">
 
             <p>Welcome, {{ $name }}</p>
             <p>Your number is <strong>{{ $number }}</strong></p>
@@ -18,7 +18,7 @@
 
             <p>
                 Your lucky colour is
-                <span style="padding: 0.1rem 0.4rem; background-color: {{ $colour['value'] }};">
+                <span style="padding: 0.1rem 0.4rem; background-color: {{ $colour['value'] }}; line-height: 2.2rem;">
                     <span style="mix-blend-mode: difference; color: #fff; font-weight: 700;">
                         {!! $colour['label'] !!}
                     </span>
@@ -26,7 +26,7 @@
             </p>
             <p style="margin-bottom: 2rem;">Do not remember this</p>
 
-            <p>When all players are ready, press below</p>
+            <p>When all players are ready, press&nbsp;below</p>
 
             <a href="/{{ $playerId }}/question/1"
                class="btn btn-success btn-block"
