@@ -12,7 +12,7 @@ final class PostStart
 {
     public function __invoke(Request $request)
     {
-        $name = $request->input("name");
+        $name = trim($request->input("name"));
 
         if (is_null($name) || $name === "") {
             session()->flash("error", "Your name cannot be blank");
