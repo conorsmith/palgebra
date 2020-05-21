@@ -31,10 +31,12 @@ Route::get("/{playerId}/results", "GetResults");
  * GAME MANAGEMENT
  */
 
-Route::get("/dashboard", "Admin\GetDashboard");
-Route::get("/game/{gameId}", "Admin\GetGame");
+Route::group(['middleware' => 'auth.basic'], function () {
+    Route::get("/dashboard", "Admin\GetDashboard");
+    Route::get("/game/{gameId}", "Admin\GetGame");
 
-Route::post("/game", "Admin\PostCreateGame");
-Route::post("/game/{gameId}/activate", "Admin\PostActivateGame");
-Route::post("/game/{gameId}/start", "Admin\PostStartGame");
-Route::post("/game/{gameId}/remove/{playerId}", "Admin\PostRemovePlayer");
+    Route::post("/game", "Admin\PostCreateGame");
+    Route::post("/game/{gameId}/activate", "Admin\PostActivateGame");
+    Route::post("/game/{gameId}/start", "Admin\PostStartGame");
+    Route::post("/game/{gameId}/remove/{playerId}", "Admin\PostRemovePlayer");
+});
