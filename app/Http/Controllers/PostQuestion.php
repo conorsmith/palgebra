@@ -23,6 +23,16 @@ final class PostQuestion
             return redirect("/");
         }
 
+        $startTime = new Carbon($game->started_at, "Europe/Dublin");
+
+        $endTime = $startTime->clone();
+        $endTime->addSeconds(intval(config("game.time")));
+
+        if ($endTime->lessThanOrEqualTo(Carbon::now("Europe/Dublin"))) {
+            session()->flash("error", "Your time is up");
+            return redirect("/{$playerId}/results");
+        }
+
         $answer = DB::selectOne("SELECT * FROM answers WHERE player_id = ? AND question = ?", [
             $playerId,
             $questionId,

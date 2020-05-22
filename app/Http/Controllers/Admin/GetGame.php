@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace ConorSmith\Palgebra\Http\Controllers\Admin;
 
+use ConorSmith\Palgebra\Countdown;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -34,9 +35,12 @@ final class GetGame
             }, 0);
         }
 
+        $timeRemainingViewModel = (new Countdown)->getTimeRemaining($game->started_at);
+
         return view('game', [
             'players' => $players,
             'game' => $game,
+            'timeRemaining' => $timeRemainingViewModel,
         ]);
     }
 }

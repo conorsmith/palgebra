@@ -11,6 +11,11 @@
             <i class="fas fa-fw fa-times"></i> {{ session("incorrect") }}
         </div>
     @endif
+    @if(session("error"))
+        <div class="alert alert-danger" style="text-align: center;">
+            {{ session("error") }}
+        </div>
+    @endif
     <div class="card">
         <table class="table">
             <thead>

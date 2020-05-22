@@ -45,6 +45,34 @@
         </div>
     </div>
     <div style="text-align: center; font-size: 1.4rem; margin-top: 2rem;">
+        <div style="font-size: 1rem; text-transform: uppercase">Time Remaining</div>
+        <div id="countdown" style="font-size: 2rem;">
+            {{ $timeRemaining->minutes }}:{{ $timeRemaining->seconds }}
+        </div>
+    </div>
+    <div style="text-align: center; font-size: 1.4rem; margin-top: 1rem;">
         Remember, {{ $name }}, your number is <strong>{{ $number }}</strong>
     </div>
+    <script>
+        function startTimer(duration, display) {
+            if (duration > 0) {
+                var timer = duration - 1, minutes, seconds;
+                setInterval(function () {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = minutes + ":" + seconds;
+
+                    if (--timer < 0) {
+                        timer = 0;
+                    }
+                }, 1000);
+            }
+        }
+
+        startTimer({{ $timeRemaining->totalSeconds }}, document.getElementById("countdown"));
+    </script>
 @endsection

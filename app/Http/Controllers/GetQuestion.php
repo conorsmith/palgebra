@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace ConorSmith\Palgebra\Http\Controllers;
 
+use Carbon\Carbon;
+use ConorSmith\Palgebra\Countdown;
 use ConorSmith\Palgebra\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -62,6 +64,8 @@ final class GetQuestion
             }
         }, 0));
 
+        $timeRemainingViewModel = (new Countdown)->getTimeRemaining($game->started_at);
+
         return view('question', [
             'playerId'       => $playerId,
             'questionId'     => $questionId,
@@ -69,6 +73,7 @@ final class GetQuestion
             'name'           => $playerName,
             'number'         => $playerNumber,
             'isLastQuestion' => $questionId === $lastQuestionId,
+            'timeRemaining'  => $timeRemainingViewModel,
         ]);
     }
 }
