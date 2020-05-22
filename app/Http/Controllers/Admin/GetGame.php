@@ -38,6 +38,7 @@ final class GetGame
         $timeRemainingViewModel = (new Countdown)->getTimeRemaining($game->started_at);
 
         return view('game', [
+            'hideHeading' => true,
             'players' => $players,
             'game' => $game,
             'timeRemaining' => $timeRemainingViewModel,

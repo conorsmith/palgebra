@@ -67,6 +67,7 @@ final class GetQuestion
         $timeRemainingViewModel = (new Countdown)->getTimeRemaining($game->started_at);
 
         return view('question', [
+            'hideHeading'    => true,
             'playerId'       => $playerId,
             'questionId'     => $questionId,
             'question'       => $questionText,

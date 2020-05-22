@@ -15,9 +15,13 @@
 <body>
 
 <div class="container" style="max-width: 40rem; padding-bottom: 3rem; font-family: 'Crimson Text', serif; font-size: 1.2rem;">
-    <div style="margin: 2rem 0; text-align: center;">
-        <h1 style="font-family: 'Crimson Text', serif; font-weight: 600;">Pal-gebra!</h1>
-    </div>
+    @if(isset($hideHeading) && $hideHeading)
+        <div style="margin-top: 2rem;"></div>
+    @else
+        <div style="margin: 2rem 0; text-align: center;">
+            <h1 style="font-family: 'Crimson Text', serif; font-weight: 600;">Pal-gebra!</h1>
+        </div>
+    @endif
     @yield('content')
 </div>
 

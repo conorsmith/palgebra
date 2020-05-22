@@ -36,6 +36,7 @@ final class GetResults
         }
 
         return view('results', [
+            'hideHeading' => true,
             'name' => $player->name,
             'number' => $player->number,
             'answers' => $answers,
