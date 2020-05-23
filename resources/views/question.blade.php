@@ -51,7 +51,7 @@
         </div>
     </div>
     <div style="text-align: center; font-size: 1.4rem; margin-top: 1rem;">
-        Remember, {{ $name }},<wbr>your number is <strong>{{ $number }}</strong>
+        Remember, {{ $name }}, <wbr>your number is <strong>{{ $number }}</strong>
     </div>
     <script>
         function startTimer(duration, display) {
